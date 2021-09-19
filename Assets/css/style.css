@@ -1,0 +1,24 @@
+header{
+    text-align: center;
+    padding: 100px;
+    line-height: 2;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.mainHeading{
+    font-size: 50px;
+}
+
+.mainHeadingText {
+    padding-bottom: 10px;
+}
+
+button{
+    color: white;
+    background-color: purple;
+    padding: 10px;
+}
+
+button:hover{
+    box-shadow: 5px 5px 5px gray;
+}
