@@ -1,4 +1,16 @@
 header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.highscores{
+    color: purple;
+}
+
+
+main{
     text-align: center;
     padding: 100px;
     line-height: 2;
@@ -13,12 +25,15 @@ header{
     padding-bottom: 10px;
 }
 
-button{
+.startButton{
     color: white;
     background-color: purple;
     padding: 10px;
 }
 
-button:hover{
+.startButton:hover{
     box-shadow: 5px 5px 5px gray;
 }
+
+
+
