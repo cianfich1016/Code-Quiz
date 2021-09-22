@@ -99,7 +99,7 @@ function displayQuestions(){
         li3.textContent = quizQuestions[currentQuestion].answerC;
         li4.textContent = quizQuestions[currentQuestion].answerD;
 
-        currentQuestion++;
+        
    
     //var correctChoice = quizQuestions[currentQuestion].correctChoice;     
 };
@@ -134,25 +134,46 @@ li4.addEventListener("click", checkAnswerD);
 function checkAnswerA(){
     if(quizQuestions[currentQuestion].correctChoice === li1.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."};
+    } else { 
+        p.textContent = "Oops! Maybe next time."
+        secondsRemaining = secondsRemaining - 10;
+    };
+    currentQuestion++;
+    displayQuestions();
 };
 function checkAnswerB(){
     if(quizQuestions[currentQuestion].correctChoice === li2.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."};
+    } else { 
+        p.textContent = "Oops! Maybe next time."
+        secondsRemaining = secondsRemaining - 10;
+    };
+    currentQuestion++;
+    displayQuestions()
 };
 function checkAnswerC(){
     if(quizQuestions[currentQuestion].correctChoice === li3.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."};
+    } else { 
+        p.textContent = "Oops! Maybe next time."
+        secondsRemaining = secondsRemaining - 10;
+    };
+    currentQuestion++;
+    displayQuestions()
 };
 
 function checkAnswerD(){
     if(quizQuestions[currentQuestion].correctChoice === li4.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."};
+    } else { 
+        p.textContent = "Oops! Maybe next time."
+        secondsRemaining = secondsRemaining - 10;
+    };
+    currentQuestion++;
+    displayQuestions()
 };
-        //console.log (quizQuestions[currentQuestion].correctChoice)
+        console.log (li4.value)
+        console.log(quizQuestions[currentQuestion].correctChoice)//console.log (quizQuestions[currentQuestion].correctChoice)
 
 
   
