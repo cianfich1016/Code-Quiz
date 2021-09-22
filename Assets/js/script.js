@@ -48,7 +48,7 @@ var quizQuestions = [
     },
     {
         question: "What functionality does JavaScript provide to websites?",
-        answerA: "a.Structure of the page",
+        answerA: "a. Structure of the page",
         answerB: "b. Styling of the page", 
         answerC: "c. Interactivity of the page", 
         answerD: "d. None of the above",
@@ -87,6 +87,7 @@ function startQuiz(){
     firstPage.style.display = "none";
     quizEl.style.display = "flex";
     secondsRemaining = 75;
+    console.log (currentQuestion)
     startClock();
     displayQuestions();
 };
@@ -98,12 +99,7 @@ function displayQuestions(){
         li3.textContent = quizQuestions[currentQuestion].answerC;
         li4.textContent = quizQuestions[currentQuestion].answerD;
 
-        if (choiceNode === quizQuestions[currentQuestion].correctChoice)
-        console.log("yay");
-
-
         currentQuestion++;
-     
    
     //var correctChoice = quizQuestions[currentQuestion].correctChoice;     
 };
@@ -130,4 +126,36 @@ li2.addEventListener("click", displayQuestions);
 li3.addEventListener("click", displayQuestions);
 li4.addEventListener("click", displayQuestions); 
 
+li1.addEventListener("click", checkAnswerA);
+li2.addEventListener("click", checkAnswerB);
+li3.addEventListener("click", checkAnswerC);
+li4.addEventListener("click", checkAnswerD);
+
+function checkAnswerA(){
+    if(quizQuestions[currentQuestion].correctChoice === li1.value){
+        p.textContent = "Correct!"
+    } else { p.textContent = "Oops! Maybe next time."
+};
+
+function checkAnswerB(){
+    if(quizQuestions[currentQuestion].correctChoice === li2.value){
+        p.textContent = "Correct!"
+    } else { p.textContent = "Oops! Maybe next time."
+};
+
+function checkAnswerC(){
+    if(quizQuestions[currentQuestion].correctChoice === li3.value){
+        p.textContent = "Correct!"
+    } else { p.textContent = "Oops! Maybe next time."
+};
+
+function checkAnswerD(){
+    if(quizQuestions[currentQuestion].correctChoice === li4.value){
+        p.textContent = "Correct!"
+    } else { p.textContent = "Oops! Maybe next time."
+};
+        //console.log (quizQuestions[currentQuestion].correctChoice)
+
+
+  
 startButton.addEventListener("click", startQuiz);
