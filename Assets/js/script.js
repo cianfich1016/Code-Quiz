@@ -3,6 +3,9 @@
 var timerElement = document.querySelector(".timerText");
 var startButton = document.querySelector(".startButton");
 var firstPage = document.getElementById("firstPage");
+var scoreEl = document.querySelector("#scores");
+var loseEl = document.querySelector("#lose")
+var displayScoresEl = document.querySelector("#displayScores")
 
 var quizEl = document.querySelector("#quiz");
 var questionsEl = document.createElement("h2");
@@ -12,6 +15,22 @@ var li2 = document.createElement("button");
 var li3 = document.createElement("button");
 var li4 = document.createElement("button");
 var p = document.createElement("p");
+var highscore = document.createElement("h3");
+var pscore = document.createElement("p")
+var highscoreInput = document.createElement("input");
+var lose = document.createElement("h1");
+var viewScores = document.createElement("h2");
+var viewInitials = document.createElement("h2")
+
+var scoresArray = [];
+
+
+scoreEl.appendChild(highscore);
+scoreEl.appendChild(pscore);
+scoreEl.appendChild(highscoreInput);
+
+
+loseEl.appendChild(lose);
 
 quizEl.appendChild(questionsEl);
 quizEl.appendChild(listEl);
@@ -22,6 +41,8 @@ listEl.appendChild(li4);
 listEl.appendChild(p);
 
 questionsEl.setAttribute("style", "font-size: 25px")
+
+highscoreInput.setAttribute("type", "text");
 
 li1.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column");
 li2.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column");
@@ -93,15 +114,13 @@ function startQuiz(){
 };
 
 function displayQuestions(){
+    
         questionsEl.textContent = quizQuestions[currentQuestion].question;
         li1.textContent = quizQuestions[currentQuestion].answerA;
         li2.textContent = quizQuestions[currentQuestion].answerB;
         li3.textContent = quizQuestions[currentQuestion].answerC;
-        li4.textContent = quizQuestions[currentQuestion].answerD;
-
-        
-   
-    //var correctChoice = quizQuestions[currentQuestion].correctChoice;     
+        li4.textContent = quizQuestions[currentQuestion].answerD; 
+       
 };
 
 
@@ -109,11 +128,17 @@ function displayQuestions(){
 
 function startClock(){
     var timer = setInterval(function() {
-        secondsRemaining--;
-        timerElement.textContent = "Time: " + secondsRemaining + " seconds";
         if (secondsRemaining === 0){
             clearInterval(timer);
+            loseGame();
+        } else if (currentQuestion > quizQuestions.length - 1){
+            clearInterval(timer);
+        } else{
+            secondsRemaining--;
         }
+        
+        timerElement.textContent = "Time: " + secondsRemaining + " seconds";
+
 
     }, 1000);
 }
@@ -139,6 +164,11 @@ function checkAnswerA(){
         secondsRemaining = secondsRemaining - 10;
     };
     currentQuestion++;
+    if (currentQuestion > quizQuestions.length - 1){
+        quizEl.style.display = "none";
+        displayHighscore();
+    return;
+   } 
     displayQuestions();
 };
 function checkAnswerB(){
@@ -149,6 +179,11 @@ function checkAnswerB(){
         secondsRemaining = secondsRemaining - 10;
     };
     currentQuestion++;
+    if (currentQuestion > quizQuestions.length - 1){
+        quizEl.style.display = "none";
+        displayHighscore();
+    return;
+   } 
     displayQuestions()
 };
 function checkAnswerC(){
@@ -159,6 +194,11 @@ function checkAnswerC(){
         secondsRemaining = secondsRemaining - 10;
     };
     currentQuestion++;
+    if (currentQuestion > quizQuestions.length - 1){
+        quizEl.style.display = "none";
+        displayHighscore();
+    return;
+   } 
     displayQuestions()
 };
 
@@ -170,11 +210,31 @@ function checkAnswerD(){
         secondsRemaining = secondsRemaining - 10;
     };
     currentQuestion++;
+    if (currentQuestion > quizQuestions.length - 1){
+        quizEl.style.display = "none";
+        displayHighscore();
+    return;
+   } 
     displayQuestions()
 };
-        console.log (li4.value)
-        console.log(quizQuestions[currentQuestion].correctChoice)//console.log (quizQuestions[currentQuestion].correctChoice)
+        
 
+function displayHighscore(){
+    highscore.textContent = "Highscore: " + secondsRemaining;
+    pscore.textContent = "Enter initials below to save!"
+    scores.style.display = "block";
+    
 
+}
+
+function loseGame(){
+    quizEl.style.display = "none";
+    lose.textContent = "GAME OVER! Better luck next time!"
+
+};
   
 startButton.addEventListener("click", startQuiz);
+
+function pushScoreInfo(){
+
+}
