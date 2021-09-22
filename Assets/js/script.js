@@ -1,4 +1,5 @@
 //Select element by class denoted in index.html.
+
 var timerElement = document.querySelector(".timerText");
 var startButton = document.querySelector(".startButton");
 var firstPage = document.getElementById("firstPage");
@@ -10,6 +11,7 @@ var li1 = document.createElement("button");
 var li2 = document.createElement("button");
 var li3 = document.createElement("button");
 var li4 = document.createElement("button");
+var p = document.createElement("p");
 
 quizEl.appendChild(questionsEl);
 quizEl.appendChild(listEl);
@@ -17,13 +19,20 @@ listEl.appendChild(li1);
 listEl.appendChild(li2);
 listEl.appendChild(li3);
 listEl.appendChild(li4);
+listEl.appendChild(p);
 
 questionsEl.setAttribute("style", "font-size: 25px")
 
-li1.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column")
-li2.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column")
-li3.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column")
-li4.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column")
+li1.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column");
+li2.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column");
+li3.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column");
+li4.setAttribute("style", "margin: 3px; padding: 7px; background-color: purple; color: white; font-size: 15px; display: flex; flex-direction: column");
+
+li1.setAttribute("value", "a");
+li2.setAttribute("value", "b");
+li3.setAttribute("value", "c");
+li4.setAttribute("value", "d");
+
 
 var currentQuestion = 0;
 var secondsRemaining = 75;
@@ -83,15 +92,18 @@ function startQuiz(){
 };
 
 function displayQuestions(){
-    
-    for(var i=0; i < quizQuestions.length; i++){
         questionsEl.textContent = quizQuestions[currentQuestion].question;
         li1.textContent = quizQuestions[currentQuestion].answerA;
         li2.textContent = quizQuestions[currentQuestion].answerB;
         li3.textContent = quizQuestions[currentQuestion].answerC;
         li4.textContent = quizQuestions[currentQuestion].answerD;
-        i++;
-    }  
+
+        if (choiceNode === quizQuestions[currentQuestion].correctChoice)
+        console.log("yay");
+
+
+        currentQuestion++;
+     
    
     //var correctChoice = quizQuestions[currentQuestion].correctChoice;     
 };
@@ -118,7 +130,4 @@ li2.addEventListener("click", displayQuestions);
 li3.addEventListener("click", displayQuestions);
 li4.addEventListener("click", displayQuestions); 
 
-function buttonclick(){
-    console.log("yay")
-}
 startButton.addEventListener("click", startQuiz);
