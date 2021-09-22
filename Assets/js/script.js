@@ -134,25 +134,23 @@ li4.addEventListener("click", checkAnswerD);
 function checkAnswerA(){
     if(quizQuestions[currentQuestion].correctChoice === li1.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."
+    } else { p.textContent = "Oops! Maybe next time."};
 };
-
 function checkAnswerB(){
     if(quizQuestions[currentQuestion].correctChoice === li2.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."
+    } else { p.textContent = "Oops! Maybe next time."};
 };
-
 function checkAnswerC(){
     if(quizQuestions[currentQuestion].correctChoice === li3.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."
+    } else { p.textContent = "Oops! Maybe next time."};
 };
 
 function checkAnswerD(){
     if(quizQuestions[currentQuestion].correctChoice === li4.value){
         p.textContent = "Correct!"
-    } else { p.textContent = "Oops! Maybe next time."
+    } else { p.textContent = "Oops! Maybe next time."};
 };
         //console.log (quizQuestions[currentQuestion].correctChoice)
 
