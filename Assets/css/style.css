@@ -42,6 +42,10 @@ main{
 }
 
 
+.submit{
+    margin-top: 50px;
+    color: purple;
+}
 
 #scores{
     display: none;
