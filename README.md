@@ -16,4 +16,7 @@ The quiz begins once the user clicks on the "Start Quiz" button. Questions are d
 
 # Deployment Access
 
+https://cianfich1016.github.io/Code-Quiz/
 # License
+
+https://github.com/cianfich1016/Code-Quiz
