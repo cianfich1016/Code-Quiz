@@ -20,3 +20,5 @@ https://cianfich1016.github.io/Code-Quiz/
 # License
 
 https://github.com/cianfich1016/Code-Quiz
+
+This project is licensed under the terms of the MIT license.
